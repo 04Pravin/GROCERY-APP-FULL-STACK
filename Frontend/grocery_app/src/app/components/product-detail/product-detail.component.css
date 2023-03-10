@@ -1,0 +1,19 @@
+.discount{
+    padding-left: 350px;
+}
+
+.price{
+    padding-left: 210px;
+}
+h4{
+    position: absolute;
+}
+
+.card{
+    width: 350px;
+    height: 350px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(138, 138, 136);
+}

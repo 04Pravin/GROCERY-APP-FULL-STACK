@@ -1,0 +1,11 @@
+server:
+  port: ${port}
+  
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/04Pravin/FULL-STACK-MONGODB/
+          username: ${name}
+          password: ${password}

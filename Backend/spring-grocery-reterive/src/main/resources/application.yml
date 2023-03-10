@@ -1,0 +1,18 @@
+server:
+  port: ${port}
+spring:   
+  application:
+    name: PRODUCT-RETERIVE-SERVICE
+#  data:
+#    mongodb:
+#      port: 27017
+#      host: localhost
+#      database: FullStack
+  config:
+    import: configserver:http://${host}:${portnum}
+    
+logging:
+  level:
+    root: info
+    com: info
+    

@@ -1,0 +1,13 @@
+server:
+  port: ${port}
+spring:   
+  application:
+    name: PRODUCT-GATEWAY
+  config:
+    import: configserver:http://${host}:${portnum} 
+    
+logging:
+  level:
+    root: info
+    com: info
+    

@@ -1,0 +1,85 @@
+<mat-card *ngIf="product" class="card">
+    <mat-card-header>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <!-- <h4 class="price">
+        {{product.price|currency:'Rs.'}}</h4><br>
+        <h4 class="discount">{{product.discount/100 | percent}}</h4> -->
+        <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
+        <mat-card-subtitle>Rating :{{product.rating}}</mat-card-subtitle>
+        
+    </mat-card-header>
+    <mat-card-content>
+        <mat-tab-group class="tab">
+            <mat-tab label="Details">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Category</td>
+                        <td>:</td>
+                        <td>{{product.category}}</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td>:</td>
+                        <td>{{product.quantity}}</td>
+                    </tr>
+                    <tr>
+                        <td>Unit</td>
+                        <td>:</td>
+                        <td>{{product.unit}}</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacture date</td>
+                        <td>:</td>
+                        <td>{{product.manufDate| date}}</td>
+                    </tr>
+                    <tr>
+                        <td>Expiry date</td>
+                        <td>:</td>
+                        <td>{{product.expDate | date}}</td>
+                    </tr>
+                    <tr>
+                        <td>Used for</td>
+                        <td>:</td>
+                        <td>{{product.usedFor}}</td>
+                    </tr>
+                    <tr>
+                        <td>Benefits</td>
+                        <td>:</td>
+                        <td>{{product.benefits}}</td>
+                    </tr>
+                    <tr>
+                        <td>Barcode</td>
+                        <td>:</td>
+                        <td>{{product.barcodeNum}}</td>
+                    </tr>
+                </table>
+           </mat-tab>
+            <mat-tab label="More details">
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td>{{product.manfDetails.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>:</td>
+                        <td>{{product.manfDetails.city}}</td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>:</td>
+                        <td>{{product.manfDetails.state}}</td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td>:</td>
+                        <td>{{product.manfDetails.country}}</td>
+                    </tr>
+                </table>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+    
+
+</mat-card>
