@@ -6,9 +6,16 @@ mat-toolbar{
     background: linear-gradient(to top, #009FFD 0%, #454593 100%);
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    
 }
 
 mat-icon:hover{
     transform: scale(1.05);
     color: red;
+}
+
+span{
+    text-align: center;
+    color: white;
+    font-size: 30px;
 }

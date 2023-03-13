@@ -1,0 +1,22 @@
+.card{
+    width: 180px;
+    height: 200px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(138, 138, 136);
+    background-color: #cae7f8;
+    display:-webkit-box;
+    margin-left: 10px;
+    /* font-family: 'Times New Roman', Times, serif; */
+}
+div{
+    display:-webkit-box;
+    flex-flow: row wrap;
+    
+}
+
+.card:hover{
+    transform: scale(1.05);
+    background-color: #8fcdf1;
+}

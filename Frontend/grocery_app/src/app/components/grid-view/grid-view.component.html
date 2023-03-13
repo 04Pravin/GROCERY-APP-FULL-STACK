@@ -1,6 +1,14 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-  </mat-grid-list>
+<div *ngIf="products">
+  <div *ngFor="let product of products" >
+    <mat-card  class="card" (click)="getDetail(product)">
+        <mat-card-header>
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          
+        </mat-card-content>
+      
+    </mat-card>
+  </div>
+</div>

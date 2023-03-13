@@ -13,6 +13,11 @@
             <mat-tab label="Details">
                 <table class="table table-striped">
                     <tr>
+                        <td>Product id</td>
+                        <td>:</td>
+                        <td>{{product.id}}</td>
+                    </tr>
+                    <tr>
                         <td>Category</td>
                         <td>:</td>
                         <td>{{product.category}}</td>
@@ -80,6 +85,9 @@
             </mat-tab>
         </mat-tab-group>
     </mat-card-content>
-    
-
+    <mat-card-actions>
+        <button mat-button (click)="delete()"><mat-icon>delete</mat-icon></button>     
+        <button mat-button (click)="edit()"><mat-icon>edit</mat-icon></button>     
+    </mat-card-actions>
 </mat-card>
+<button mat-button (click)="back()">back</button> 

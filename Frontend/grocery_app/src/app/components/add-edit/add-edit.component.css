@@ -1,0 +1,13 @@
+.field{
+    width: 300px;
+}
+
+.card{
+    width: 400px;
+    margin: auto;
+    margin-top: 15px;
+    box-shadow: 5px 10px rgb(138, 138, 136);
+    border-radius: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    /* background:linear-gradient(to right, #fafafafe , rgb(104, 189, 246)); */
+}

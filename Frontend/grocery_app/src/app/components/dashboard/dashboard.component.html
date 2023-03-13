@@ -1,2 +1,14 @@
-<app-table-view></app-table-view>
-<!-- <app-grid-view></app-grid-view> -->
+<button mat-button (click)="change()" *ngIf="grid" matTooltip="grid view"><mat-icon>grid_on</mat-icon></button>
+<button mat-button (click)="change()" *ngIf="!grid" matTooltip="table view"><mat-icon>table</mat-icon></button>
+
+<button mat-button (click)="add()" matTooltip="add"><mat-icon>add</mat-icon></button>
+
+<app-table-view [products] = "products" (sort)="sort($event)" *ngIf="grid"></app-table-view>
+<app-grid-view [products]="products" *ngIf="!grid"></app-grid-view>
+
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[1, 5, 10, 25, 100]"
+              aria-label="Select page"
+              (page)="onPageChange($event)">
+</mat-paginator>

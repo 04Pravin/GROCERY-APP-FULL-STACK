@@ -1,29 +1,51 @@
-table{
-    margin: auto;
+.table{
+    /* margin: auto; */
     margin-top: 20px;
     text-align: center;
-    /* width: auto; */
-    height: 50%;
+    width: 100%;
+    /* height: 400px; */
     font-family: 'Times New Roman', Times, serif;
-    text-align: center;
+    background-color:  #cae7f8;
+    /* overflow-x: scroll; */
 }
 
+.container{
+    overflow-x: scroll;
+   
+}
 th{
     text-align: center;
-    /* width: 1000px; */
+    width: 500px;
 }
 
 .mat-header-cell {
     text-align: center;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
+    color: black;
+    background-color: #69bef0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    /* width:100%; */
+    
 }
+
+tr{
+    text-align: center;
+    /* background-color: #69bef0; */
+    width: auto;
+    text-align: center;
+}
+
 tr:hover{
     background-color: rgb(201, 201, 201);
     color:white;
+    text-align: center;
     /* transform: scale(1); */
    
 }
+
+
 /* td:hover{
     background-color: rgb(112, 117, 197);
     color:rgb(2, 2, 2);

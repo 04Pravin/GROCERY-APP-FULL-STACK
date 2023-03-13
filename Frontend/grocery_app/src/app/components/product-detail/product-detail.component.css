@@ -10,10 +10,28 @@ h4{
 }
 
 .card{
-    width: 350px;
-    height: 350px;
+    width: 550px;
+    height: 650px;
     margin: auto;
     margin-top: 10px;
     border-radius: 10px;
     box-shadow: 5px 10px rgb(138, 138, 136);
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    /* background-image: url('src\assets\images\logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; */
+    background-color: #cae7f8;
+
+    
+}
+
+button:active{
+border: none;
+}
+
+mat-card-header{
+    background-color: #69bef0;
 }

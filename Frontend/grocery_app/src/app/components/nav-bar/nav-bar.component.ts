@@ -17,4 +17,8 @@ export class NavBarComponent implements OnInit {
   grid(){
     this._router.navigate(['/grid']);
   }
+
+  home(){
+    this._router.navigate(['']);
+  }
 }

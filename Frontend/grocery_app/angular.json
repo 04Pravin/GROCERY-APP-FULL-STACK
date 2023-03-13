@@ -103,5 +103,7 @@
       }
     }
   },
-  "defaultProject": "grocery_app"
+  "cli": {
+    "analytics": false
+  }
 }
