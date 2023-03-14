@@ -35,3 +35,7 @@ border: none;
 mat-card-header{
     background-color: #69bef0;
 }
+
+.back{
+    position: fixed;
+}

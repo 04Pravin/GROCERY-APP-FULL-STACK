@@ -24,6 +24,16 @@
         </mat-form-field><br>
 
         <mat-form-field appearance="fill" class="field" >
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="Enter price" formControlName="price">
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" class="field" >
+            <mat-label>Discount</mat-label>
+            <input matInput placeholder="Enter discount" formControlName="discount">
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" class="field" >
             <mat-label>Rating</mat-label>
             <input matInput placeholder="Enter rating" formControlName="rating">
         </mat-form-field><br>
@@ -35,7 +45,7 @@
 
         <mat-form-field appearance="fill" class="field" >
             <mat-label>Unit</mat-label>
-            <mat-select>
+            <mat-select formControlName="unit">
                 <mat-option value="">--select--</mat-option>
                 <mat-option value="litre">litre</mat-option>
                 <mat-option value="milli-litre">milli-litre</mat-option>
@@ -44,15 +54,9 @@
             </mat-select>
         </mat-form-field><br>
 
-        <mat-form-field appearance="fill" class="field" >
-            <mat-label>Price</mat-label>
-            <input matInput placeholder="Enter price" formControlName="price">
-        </mat-form-field><br>
 
-        <mat-form-field appearance="fill" class="field" >
-            <mat-label>Discount</mat-label>
-            <input matInput placeholder="Enter discount" formControlName="discount">
-        </mat-form-field><br>
+
+
 
         <mat-form-field appearance="fill" class="field" >
             <mat-label>Usedfor</mat-label>
@@ -61,7 +65,7 @@
 
         <mat-form-field appearance="fill" class="field" >
             <mat-label>Container</mat-label>
-            <mat-select>
+            <mat-select formControlName="container">
                 <mat-option value="">--select--</mat-option>
                 <mat-option value="pack">pack</mat-option>
                 <mat-option value="bottle">bottle</mat-option>
@@ -71,7 +75,7 @@
         </mat-form-field><br>
         <div>
             <label>Availability: </label>
-            <mat-radio-group [formControl]="floatLabelControl">
+            <mat-radio-group formControlName="availability">
               <mat-radio-button value="Available">Available</mat-radio-button>
               <mat-radio-button value="Out of stock">Out of stock</mat-radio-button>
             </mat-radio-group>
@@ -79,12 +83,12 @@
 
         <mat-form-field appearance="fill" class="field" >
             <mat-label>Manufacture Date</mat-label>
-            <input matInput type = "datetime-local" placeholder="Enter manufacture date" formControlName="manufDate">
+            <input matInput type = "date" placeholder="Enter manufacture date" formControlName="manufDate" value="2023/05/20">
         </mat-form-field><br>
 
         <mat-form-field appearance="fill" class="field" >
             <mat-label>Expiry Date</mat-label>
-            <input matInput type = "datetime-local" placeholder="Enter expiry date" formControlName="expDate">
+            <input matInput type = "date" placeholder="Enter expiry date" formControlName="expDate" value="2023/05/20">
         </mat-form-field><br>
 
         <mat-form-field appearance="fill" class="field" >
@@ -140,6 +144,6 @@
   
     <mat-card-actions>
         <button mat-button (click)="cancel()">cancel</button>     
-        <button mat-button (click)="add(addForm)">submit</button>     
+        <button mat-button [disabled]="!addForm.valid" (click)="add(addForm)">submit</button>     
     </mat-card-actions>
 </mat-card>

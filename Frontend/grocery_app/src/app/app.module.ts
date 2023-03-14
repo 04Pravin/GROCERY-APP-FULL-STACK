@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { GridViewComponent } from './components/grid-view/grid-view.component';
 import { TableViewComponent } from './components/table-view/table-view.component';
 import { AddEditComponent } from './components/add-edit/add-edit.component';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './auth/keycloak-initializer';
 
 @NgModule({
   declarations: [
@@ -31,10 +33,20 @@ import { AddEditComponent } from './components/add-edit/add-edit.component';
     BrowserAnimationsModule,
     MaterialsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    KeycloakAngularModule,
     
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+    
+    provide: APP_INITIALIZER,
+    useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    }
+  ],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

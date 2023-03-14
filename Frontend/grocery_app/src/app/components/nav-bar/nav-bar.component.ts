@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { KeycloakProfile } from 'keycloak-js';
+import { AuthService } from 'src/app/auth/service/auth.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -9,9 +11,16 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private _productService:ProductService, private _router:Router) { }
+  username!:string | undefined;
+  userProfile: KeycloakProfile={};
+  constructor(private _productService:ProductService, private _router:Router, private _authService:AuthService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if(await this._authService.isLogedIn()){
+      this.userProfile = await this._authService.loadUserProfile();
+      this.username = this.userProfile.username;
+    }
+    
   }
 
   grid(){
@@ -20,5 +29,9 @@ export class NavBarComponent implements OnInit {
 
   home(){
     this._router.navigate(['']);
+  }
+
+  logOut(){
+    this._authService.logout();
   }
 }

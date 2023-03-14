@@ -1,38 +1,21 @@
-.table{
-    /* margin: auto; */
+/* table{
+    margin: auto;
     margin-top: 20px;
     text-align: center;
     width: 100%;
-    /* height: 400px; */
     font-family: 'Times New Roman', Times, serif;
     background-color:  #cae7f8;
-    /* overflow-x: scroll; */
-}
+    overflow: visible;
+} 
 
-.container{
-    overflow-x: scroll;
-   
-}
-th{
+ th{
     text-align: center;
-    width: 500px;
-}
-
-.mat-header-cell {
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    color: black;
-    background-color: #69bef0;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    /* width:100%; */
-    
+    flex: 1;
 }
 
 tr{
     text-align: center;
-    /* background-color: #69bef0; */
+
     width: auto;
     text-align: center;
 }
@@ -40,14 +23,89 @@ tr{
 tr:hover{
     background-color: rgb(201, 201, 201);
     color:white;
+} 
+
+
+.title-holder {
+    border-bottom: 2px solid #f2f2f2;
+    margin-bottom: 10px;
+  }
+
+  .mat-header-row{
+    width: 100%;
+     text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+  } */
+
+.mat-row td {
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: none;
+    position: relative;
+    z-index: 1;
     text-align: center;
-    /* transform: scale(1); */
-   
+    color: black;    
+} 
+
+
+.mat-header-row{
+    background: #f6f4f4; 
+    background-color: rgb(201, 201, 201);
+}
+
+th.mat-header-cell{
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+
+    width: 200px;
+    height: 80px;
+    padding-left: 10px;
+    border-radius: none;
+
 }
 
 
-/* td:hover{
-    background-color: rgb(112, 117, 197);
-    color:rgb(2, 2, 2);
-} */
+.mat-row td {
+     height: 100%;
+     padding-top: 1rem;
+     padding-bottom: 1rem;
+     border-bottom: none;
+     position: relative;
+     z-index: 1;
+     border-radius: none;
+}
+   
+.mat-row td::before {
+     content: '';
+     width: 100%;
+     height: calc(100% - 0.5rem);
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+     /* background-color: #DAF0FE; */
+     /* border-radius: 12px; */
+     border-bottom: 1px solid lightgray;
+     border-radius: none;
+     border-top: 1px solid lightgray;
+}
+/*    
+.mat-row td:hover{
+    background-color: rgb(201, 201, 201);
+    color:white;
+}  */
+
+tr:hover{
+    /* background-color: rgb(201, 201, 201); */
+    background-color: #E3E3E3;
+    color:white;
+    border-radius: none;
+} 
 

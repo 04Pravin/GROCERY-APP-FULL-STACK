@@ -9,8 +9,8 @@ import { Product } from '../model/product';
 export class ProductService {
 
   constructor(private _httpClient:HttpClient) { }
-  reteriveUrl:string = 'http://localhost:9000/product-reterive-api/products/';
-  cudUrl:string = 'http://localhost:9000/product-api/products/';
+  reteriveUrl:string = '/product-reterive-api/products/';
+  cudUrl:string = '/product-api/products/';
 
 
   getById(id:number):Observable<Product>{
@@ -22,6 +22,7 @@ export class ProductService {
   }
 
   add(product:Product){
+    console.log(product);
     return this._httpClient.post<Product>(this.cudUrl,product);
   }
 
@@ -33,8 +34,12 @@ export class ProductService {
     return this._httpClient.delete<Product>(this.cudUrl+'id/'+id);
   }
 
-  getProductPage(key:string,sort:boolean,pageIndex:number,records:number){
-    return this._httpClient.get<Product[]>(this.reteriveUrl+pageIndex+'/'+records+'/'+key+'/'+sort);
+  getProductPage(key:string,order:boolean,pageIndex:number,records:number){
+    return this._httpClient.get<Product[]>(this.reteriveUrl+pageIndex+'/'+records+'/'+key+'/'+order);
+  }
+
+  totalRecords(){
+    return this._httpClient.get<number>(this.reteriveUrl+'count');
   }
 
 }

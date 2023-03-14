@@ -3,6 +3,7 @@ import { Component, Input, OnInit,OnChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/service/auth.service';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
@@ -18,7 +19,6 @@ export class TableViewComponent implements OnInit ,OnChanges{
   @Input() products!:Product[];
   dataSource!:Product[];
   columns = new FormControl('');
-  columns1: any[]=[];
   displayedColumns:string[]=['id','name','category', 'brand', 'price', 'discount', 'manfDate', 'expDate', 'rating', 'quantity', 'unit', 'availability', 'orginiOfCountry', 'barcodeNum', 'storage', 'benefits', 'usedFor','container', 'email', 'city', 'state', 'country', 'edit', 'delete'];
   emptyColumn: string[] = this.displayedColumns;  
   verifyColumns:boolean=true;
@@ -26,10 +26,12 @@ export class TableViewComponent implements OnInit ,OnChanges{
   field!:string;
   order!:string;
   sortedProducts!:Product[];
+  roles!:string[];
 
-  constructor(private _productService:ProductService, private _router:Router) { }
+  constructor(private _productService:ProductService, private _router:Router, private _authService:AuthService) { }
 
   ngOnInit(): void {
+    this.roles = this._authService.getUser();
     
   }
 
@@ -68,11 +70,11 @@ export class TableViewComponent implements OnInit ,OnChanges{
     this.options = this.displayedColumns;
   }
 
-  removeOptions(){
+  none(){
     this.options = [];
   }
 
-  show=(filter:string[]|any)=>{
+  show(filter:string[]|any){
     if(filter)
       this.options=filter;
   }

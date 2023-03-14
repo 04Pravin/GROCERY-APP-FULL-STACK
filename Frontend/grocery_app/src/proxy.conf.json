@@ -1,0 +1,13 @@
+{
+    "/product-reterive-api": {
+      "target": "http://localhost:9000/",
+      "secure": false
+    },
+ 
+    "/product-api": {
+      "target": "http://localhost:9000/",
+      "secure": false
+    }
+  }
+
+

@@ -1,14 +1,30 @@
-mat-toolbar{
+/* .nav-bar{
     /* background:linear-gradient(to right, #D2122E , #fd5c63); */
     /* background: linear-gradient(to top, #ff0844 0%, #ffb199 100%); */
     /* background-color: #D2122E; */
     /* background-color: red; */
+    /* background: linear-gradient(to top, #009FFD 0%, #454593 100%);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold; */
+
+    /* display: flex; */
+    /* position: fixed;
+}*/
+    
+ 
+
+
+.mat-toolbar{
     background: linear-gradient(to top, #009FFD 0%, #454593 100%);
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    
-}
+    height: 50px;
+  }
 
+mat-icon{
+    padding-left: 10px;
+    size: 100%;
+}
 mat-icon:hover{
     transform: scale(1.05);
     color: red;
@@ -19,3 +35,13 @@ span{
     color: white;
     font-size: 30px;
 }
+
+button{
+    float: right; 
+}
+
+.title{
+    flex: 1 1 auto;
+}
+
+

@@ -1,3 +1,4 @@
+<button mat-button (click)="back()" class="back">back</button> 
 <mat-card *ngIf="product" class="card">
     <mat-card-header>
         <mat-card-title>{{product.name}}</mat-card-title>
@@ -85,9 +86,8 @@
             </mat-tab>
         </mat-tab-group>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-button (click)="delete()"><mat-icon>delete</mat-icon></button>     
-        <button mat-button (click)="edit()"><mat-icon>edit</mat-icon></button>     
-    </mat-card-actions>
+
+        <button mat-button (click)="delete()" *ngIf="roles.includes('Manager')"><mat-icon>delete</mat-icon></button>     
+        <button mat-button (click)="edit()" *ngIf="roles.includes('Editor')"><mat-icon>edit</mat-icon></button>     
+ 
 </mat-card>
-<button mat-button (click)="back()">back</button> 

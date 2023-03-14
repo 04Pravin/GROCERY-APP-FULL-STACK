@@ -1,6 +1,17 @@
-<mat-toolbar>
+<div class="abc">
+<mat-toolbar class="nav-bar">
     <mat-icon matTooltip="home" (click)="home()">home</mat-icon>
-    <div>
-        <span>Grocery App</span>
+    <span class="title">Grocery App</span>
+    
+    {{username | titlecase}}
+    <mat-icon [matMenuTriggerFor]="menu"> person</mat-icon>
+    <div class="user">
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item (click)="logOut()"> Logout</button>
+        </mat-menu>
     </div>
+   
 </mat-toolbar>
+
+</div>

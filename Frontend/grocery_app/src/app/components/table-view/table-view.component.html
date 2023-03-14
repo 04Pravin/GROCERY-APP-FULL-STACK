@@ -1,29 +1,21 @@
-<mat-form-field appearance="outline" style="float: right;margin-right: 10px;">
+<mat-form-field appearance="outline" style="float: right;margin-right: 10px;" class="columnChooser">
     <mat-select  required multiple  (selectionChange)="onSelect($event)" [formControl]="columns">
-        <mat-selection-list text-align="center" [ngModel]="options" #filter>
-            <mat-option (click)="removeOptions()" text-align="center">None</mat-option>
-            <mat-option (click)="selectAll()" text-align="center">select all</mat-option>
-            <mat-list-option *ngFor="let column of displayedColumns" value="{{ column }}">
+        <mat-selection-list  [ngModel]="options" #filter>
+            <mat-option (click)="none()" >None</mat-option>
+            <mat-option (click)="selectAll()">select all</mat-option>
+            <mat-list-option *ngFor="let column of displayedColumns" (click)="show(filter._value)" value="{{ column }}">
               {{ column }}
             </mat-list-option>
         </mat-selection-list>
-    
-        <button
-            class="option-button"
-            mat-button
-            color="primary"
-            (click)="show(filter._value)">
-            save
-          </button>
     </mat-select>
     <mat-label>Select Fields</mat-label>
 </mat-form-field> 
 
-<div class="container">
-<table mat-table [dataSource]="dataSource"  *ngIf="products" matSort (matSortChange)="sortData($event)">
-    <ng-container matColumnDef="id" >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="id">Product Id</th>
-        <td mat-cell *matCellDef="let product" class="cell">{{product.id}}</td>
+<div  class="table-holder">
+<table mat-table [dataSource]="dataSource"  *ngIf="products" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+    <ng-container matColumnDef="id" class="cell">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="id" class="cell">Id</th>
+        <td mat-cell *matCellDef="let product" >{{product.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name" >
@@ -133,25 +125,25 @@
     </ng-container>
 
     <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef> Edit </th>
-        <td mat-cell *matCellDef="let product">
-            <button mat-icon-button (click)="edit(product)" matTooltip="edit">
+        <th mat-header-cell *matHeaderCellDef > Edit </th>
+        <td mat-cell *matCellDef="let product" >
+            <button mat-icon-button (click)="edit(product)" *ngIf="!roles.includes('User')" matTooltip="edit">
               <mat-icon>edit</mat-icon>
             </button>
           </td>
       </ng-container>
 
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <th mat-header-cell *matHeaderCellDef > Delete </th>
         <td mat-cell *matCellDef="let product">
-            <button mat-icon-button (click)="delete(product.id)" matTooltip="delete">
+            <button mat-icon-button (click)="delete(product.id)" *ngIf="roles.includes('Manager')" matTooltip="delete">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
       </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="options" ></tr>
-    <tr mat-row  (click)="getDetail(row)" *matRowDef="let row; columns: options"></tr> 
+    <tr mat-header-row class="tableHeaderCellDiv" *matHeaderRowDef="options; sticky: true;" ></tr>
+    <tr mat-row  (click)="getDetail(row)" *matRowDef="let row; columns: options" ></tr> 
 
 </table>
 </div>
