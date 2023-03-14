@@ -11,4 +11,6 @@ public interface IProductService {
 	
 	void updateProduct(Product product);
 	
+	
+	
 }

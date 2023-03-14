@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +33,7 @@ public class ProductController {
 	}
 
 	@PostMapping("/products")
+	@PreAuthorize("hasAnyRole('Manager')")
 	ResponseEntity<Void>addProduct(@RequestBody Product product){
 		logger.info("Controller - Adding product");
 		productService.addProduct(product);
@@ -38,17 +41,18 @@ public class ProductController {
 	}
 	
 	@PutMapping("/products")
+	@PreAuthorize("hasAnyRole('Manager', 'Editor')")
 	ResponseEntity<Void>updateProduct(@RequestBody Product product){
 		logger.info("Controller - Updating product");
 		productService.updateProduct(product);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
-	@DeleteMapping("/id/{id}")
+	@DeleteMapping("/products/id/{id}")
+	@PreAuthorize("hasAnyRole('Manager')")
 	ResponseEntity<Void>deleteProduct(@PathVariable int id){
 		logger.info("Controller - Deleting product");
 		productService.deleteProduct(id);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
-	
 	
 }

@@ -11,11 +11,8 @@ public class Product {
 	
 	@Id
 	private Integer id;
-	@TextIndexed
 	private String name;
-	@TextIndexed
 	private String category;
-	@TextIndexed
 	private String brand;
 	private double price;
 	private double discount;
