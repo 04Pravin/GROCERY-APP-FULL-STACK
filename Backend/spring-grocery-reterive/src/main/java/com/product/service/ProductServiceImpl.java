@@ -40,10 +40,10 @@ public class ProductServiceImpl implements IProductService {
 		} else {
 			if (!sort) {
 				return productRepo
-						.findAll(PageRequest.of(record, pageIndex).withSort(Sort.by(Sort.Direction.ASC, key)));
+						.findAll(PageRequest.of(record, pageIndex,Sort.by(key).ascending()));
 			} else {
 				return productRepo
-						.findAll(PageRequest.of(record, pageIndex).withSort(Sort.by(Sort.Direction.DESC, key)));
+						.findAll(PageRequest.of(record, pageIndex,Sort.by(key).descending()));
 			}
 		}
 	}

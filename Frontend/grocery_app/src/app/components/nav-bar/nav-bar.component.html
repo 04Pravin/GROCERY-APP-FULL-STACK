@@ -1,4 +1,4 @@
-<div class="abc">
+<!-- <div class="abc">
 <mat-toolbar class="nav-bar">
     <mat-icon matTooltip="home" (click)="home()">home</mat-icon>
     <span class="title">Grocery App</span>
@@ -14,4 +14,13 @@
    
 </mat-toolbar>
 
-</div>
+</div> -->
+
+<mat-toolbar>
+    <mat-icon matTooltip="home" (click)="home()">home</mat-icon>
+    <span>Grocery App</span>
+    {{username | titlecase}}
+    <mat-icon> person</mat-icon>
+    <button mat-button (click)="logOut()" matTooltip="logout"><mat-icon>logout</mat-icon></button>
+</mat-toolbar>
+<button mat-button (click)="back()" matTooltip="back"><mat-icon>arrow_back</mat-icon></button>

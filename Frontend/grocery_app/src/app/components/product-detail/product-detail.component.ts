@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
-import { Location } from '@angular/common';
 import { AuthService } from 'src/app/auth/service/auth.service';
 
 
@@ -17,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
   productId!:number;
   roles!:string[];
 
-  constructor(private _productService:ProductService, private _router:Router, private _activatedRoute:ActivatedRoute, private location: Location, private _authService:AuthService) { }
+  constructor(private _productService:ProductService, private _router:Router, private _activatedRoute:ActivatedRoute, private _authService:AuthService) { }
 
   ngOnInit(): void {
     this._activatedRoute.params.subscribe({
@@ -46,9 +45,4 @@ export class ProductDetailComponent implements OnInit {
   edit(){
     this._router.navigate(['edit',this.productId]);
   }
-
-  back():void{
-    this.location.back();
-  }
-
 }

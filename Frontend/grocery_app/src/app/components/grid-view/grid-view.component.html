@@ -4,6 +4,8 @@
         <mat-card-header>
             <mat-card-title>{{product.name}}</mat-card-title>
             <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
+            <mat-card-subtitle>{{product.price | currency: 'Rs. '}}</mat-card-subtitle>
+            <mat-card-subtitle>{{product.discount/100 | percent}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           

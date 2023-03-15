@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { KeycloakProfile } from 'keycloak-js';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { ProductService } from 'src/app/service/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,7 +14,7 @@ export class NavBarComponent implements OnInit {
 
   username!:string | undefined;
   userProfile: KeycloakProfile={};
-  constructor(private _productService:ProductService, private _router:Router, private _authService:AuthService) { }
+  constructor(private _productService:ProductService, private _router:Router, private _authService:AuthService, private _location:Location) { }
 
   async ngOnInit(): Promise<void> {
     if(await this._authService.isLogedIn()){
@@ -33,5 +34,9 @@ export class NavBarComponent implements OnInit {
 
   logOut(){
     this._authService.logout();
+  }
+
+  back(){
+    this._location.back();
   }
 }

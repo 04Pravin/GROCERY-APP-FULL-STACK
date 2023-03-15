@@ -1,8 +1,8 @@
+<div>
+<button mat-button (click)="view()" *ngIf="grid" matTooltip="grid view"><mat-icon>grid_on</mat-icon></button>
+<button mat-button (click)="view()" *ngIf="!grid" matTooltip="table view"><mat-icon>table</mat-icon></button>
 
-    <button mat-button (click)="view()" *ngIf="grid" matTooltip="grid view"><mat-icon>grid_on</mat-icon></button>
-    <button mat-button (click)="view()" *ngIf="!grid" matTooltip="table view"><mat-icon>table</mat-icon></button>
-
-    <button mat-button (click)="add()" class="paginator" *ngIf="roles.includes('Manager')" matTooltip="add"><mat-icon>add</mat-icon></button>
+<button mat-button (click)="add()" *ngIf="roles.includes('Manager')"  matTooltip="add"><mat-icon>add</mat-icon></button>
 
 <app-table-view [products] = "products" (sort)="sort($event)" *ngIf="grid"></app-table-view>
 <app-grid-view [products]="products" *ngIf="!grid"></app-grid-view>
@@ -13,3 +13,4 @@
               aria-label="Select page"
               (page)="onPageChange($event)">
 </mat-paginator>
+</div>

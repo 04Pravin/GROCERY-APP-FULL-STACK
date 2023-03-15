@@ -1,6 +1,24 @@
 .paginator{
+    background-color: transparent;
+    color: black;
+    /* font-weight: bold; */
     position: fixed;
     bottom: 0;
     right: 0;
 }
 
+/* button{
+    position: fixed;
+} */
+button:focus{
+    outline: none;
+}
+
+button:hover{
+    transform: scale(1.05);
+    color:red;
+}
+
+div{
+    margin-top: 60px;
+}

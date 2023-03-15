@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,13 +28,13 @@ export class DashboardComponent implements OnInit {
   displayedColumns:string[]=['id','name','category', 'brand', 'price', 'discount', 'manfDate', 'expDate', 'rating', 'quantity', 'unit', 'availability', 'orginiOfCountry', 'barcodeNum', 'storage', 'benefits', 'usedFor','container', 'email', 'city', 'state', 'country', 'edit','delete'];
 
   
-  constructor(private _productService:ProductService, private _router:Router, private _authService:AuthService) { }
+  constructor(private _productService:ProductService, private _router:Router, private _authService:AuthService, private _location:Location) { }
 
   ngOnInit(): void {
     this.roles = this._authService.getUser();
 
     this.index = 0;
-    this.records = 10;
+    this.records = 5;
     this.field="id";
     this.order=false;
     this._productService.getProductPage(this.field,this.order, this.index, this.records).subscribe({
@@ -82,5 +83,8 @@ export class DashboardComponent implements OnInit {
         console.log('completed pagintaion and sorting')}
     });
     
+  }
+  back(){
+    this._location.back();
   }
 }

@@ -50,6 +50,11 @@ tr:hover{
     color: black;    
 } 
 
+table{
+    /* margin-top: 80px; */
+    /* position: fixed; */
+    overflow: none;
+}
 
 .mat-header-row{
     background: #f6f4f4; 
@@ -102,10 +107,16 @@ th.mat-header-cell{
     color:white;
 }  */
 
-tr:hover{
+.mat-row:hover{
     /* background-color: rgb(201, 201, 201); */
     background-color: #E3E3E3;
     color:white;
     border-radius: none;
 } 
 
+/* .columnChooser{
+    margin-top: 60px;
+    position: fixed;
+    top: 0;
+    right: 0;
+} */
