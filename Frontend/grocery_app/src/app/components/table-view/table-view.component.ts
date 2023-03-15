@@ -19,10 +19,10 @@ export class TableViewComponent implements OnInit ,OnChanges{
   @Input() products!:Product[];
   dataSource!:Product[];
   columns = new FormControl('');
-  displayedColumns:string[]=['id','name','category', 'brand', 'price', 'discount', 'manfDate', 'expDate', 'rating', 'quantity', 'unit', 'availability', 'orginiOfCountry', 'barcodeNum', 'storage', 'benefits', 'usedFor','container', 'email', 'city', 'state', 'country', 'edit', 'delete'];
+  displayedColumns:string[]=['id','name','category', 'brand', 'price', 'discount', 'manfDate', 'expDate', 'rating', 'quantity', 'unit', 'availability', 'orginiOfCountry', 'barcodeNum', 'storage', 'benefits', 'usedFor','container', 'email', 'city', 'state', 'country'];
   emptyColumn: string[] = this.displayedColumns;  
   verifyColumns:boolean=true;
-  options!:string[];
+  columnChooser!:string[];
   field!:string;
   order!:string;
   sortedProducts!:Product[];
@@ -32,12 +32,19 @@ export class TableViewComponent implements OnInit ,OnChanges{
 
   ngOnInit(): void {
     this.roles = this._authService.getUser();
+    if(this.roles.includes('Manager')){
+      this.displayedColumns.push('edit');
+      this.displayedColumns.push('delete')
+    }
+    else if(this.roles.includes('Editor')){
+      this.displayedColumns.push('edit');
+    }
     
   }
 
   ngOnChanges(){
     if(this.verifyColumns){
-      this.options=this.displayedColumns;
+      this.columnChooser=this.displayedColumns;
     if(this.displayedColumns.length>0){
       this.verifyColumns=false;
     }
@@ -67,16 +74,16 @@ export class TableViewComponent implements OnInit ,OnChanges{
   }
 
   selectAll(){
-    this.options = this.displayedColumns;
+    this.columnChooser = this.displayedColumns;
   }
 
   none(){
-    this.options = [];
+    this.columnChooser = [];
   }
 
   show(filter:string[]|any){
     if(filter)
-      this.options=filter;
+      this.columnChooser=filter;
   }
 
   onSelect(event:any){

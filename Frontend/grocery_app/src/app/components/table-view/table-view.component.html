@@ -1,6 +1,6 @@
 <mat-form-field appearance="outline" style="float: right;margin-right: 10px;" class="columnChooser">
-    <mat-select  required multiple  (selectionChange)="onSelect($event)" [formControl]="columns">
-        <mat-selection-list  [ngModel]="options" #filter>
+    <mat-select  multiple  (selectionChange)="onSelect($event)" [formControl]="columns">
+        <mat-selection-list  [ngModel]="columnChooser" #filter>
             <mat-option (click)="none()" >None</mat-option>
             <mat-option (click)="selectAll()">select all</mat-option>
             <mat-list-option *ngFor="let column of displayedColumns" (click)="show(filter._value)" value="{{ column }}">
@@ -124,26 +124,26 @@
         <td mat-cell *matCellDef="let product">{{product.manfDetails.country}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="edit">
+    <ng-container matColumnDef="edit"  *ngIf="roles.includes('Manager') || roles.includes('Editor')" >
         <th mat-header-cell *matHeaderCellDef > Edit </th>
         <td mat-cell *matCellDef="let product" >
-            <button mat-icon-button (click)="edit(product)" *ngIf="!roles.includes('User')" matTooltip="edit">
+            <button mat-icon-button (click)="edit(product)" matTooltip="edit">
               <mat-icon>edit</mat-icon>
             </button>
           </td>
       </ng-container>
 
-      <ng-container matColumnDef="delete">
+      <ng-container matColumnDef="delete" *ngIf="roles.includes('Manager')">
         <th mat-header-cell *matHeaderCellDef > Delete </th>
         <td mat-cell *matCellDef="let product">
-            <button mat-icon-button (click)="delete(product.id)" *ngIf="roles.includes('Manager')" matTooltip="delete">
+            <button mat-icon-button (click)="delete(product.id)"  matTooltip="delete">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
       </ng-container>
 
-    <tr mat-header-row class="tableHeaderCellDiv" *matHeaderRowDef="options; sticky: true;" ></tr>
-    <tr mat-row  (click)="getDetail(row)" *matRowDef="let row; columns: options" ></tr> 
+    <tr mat-header-row class="tableHeaderCellDiv" *matHeaderRowDef="columnChooser; sticky: true;" ></tr>
+    <tr mat-row  (click)="getDetail(row)" *matRowDef="let row; columns: columnChooser" ></tr> 
 
 </table>
 </div>

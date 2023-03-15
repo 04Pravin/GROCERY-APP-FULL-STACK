@@ -94,7 +94,8 @@
         </mat-list> -->
     </mat-card-content>
 
+    <mat-card-footer> 
         <button mat-button (click)="delete()" *ngIf="roles.includes('Manager')"><mat-icon>delete</mat-icon></button>     
         <button mat-button (click)="edit()" *ngIf="roles.includes('Editor')"><mat-icon>edit</mat-icon></button>     
- 
+    </mat-card-footer>
 </mat-card>

@@ -89,7 +89,10 @@ export class AddEditComponent implements OnInit {
      else{
       this._productService.update(addForm.value).subscribe({
         error:()=>console.log('Error while updating a product'),
-        complete:()=>console.log('Updated')
+        complete:()=>{
+          console.log('Updated');
+          this._router.navigate(['']);
+        }
       })
       this._router.navigate(['']);
      }

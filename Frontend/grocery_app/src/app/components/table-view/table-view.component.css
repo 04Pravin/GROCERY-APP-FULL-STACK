@@ -83,6 +83,7 @@ th.mat-header-cell{
      position: relative;
      z-index: 1;
      border-radius: none;
+     /* background-color: #aad7f9; */
 }
    
 .mat-row td::before {
@@ -90,6 +91,7 @@ th.mat-header-cell{
      width: 100%;
      height: calc(100% - 0.5rem);
      position: absolute;
+     /* background-color: #aad7f9; */
      left: 0;
      right: 0;
      top: 0;
