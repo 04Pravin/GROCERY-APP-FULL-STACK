@@ -13,14 +13,14 @@ public class WebSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.cors() //allows cross-origin requests from browser
-		.and().authorizeRequests() // to authorize all the request
+		http.cors() 
+		.and().authorizeRequests() 
 		.anyRequest()
-		.authenticated() // any request to the server must be authenticated 
-		.and() // to chain multiple configurations together 
-		.oauth2ResourceServer() // configure the server to act as OAuth 2.0 resource server
-		.jwt() // the server will use JSON token for authentication
-		.jwtAuthenticationConverter(jwtAuthenticationConverter()); // converts the JWT token into authentication object used for authorization
+		.authenticated() 
+		.and() 
+		.oauth2ResourceServer() 
+		.jwt() 
+		.jwtAuthenticationConverter(jwtAuthenticationConverter()); 
 		return http.build();
 	}
 
